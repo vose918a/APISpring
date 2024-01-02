@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class PersonService {
-    //Transfer the data manipulation methods from the controller to this class
+    //TODO: Transfer the data manipulation methods from the controller to this class
     //Attributes
-    PersonRepository repository;
+    private final PersonRepository repository;
     //Constructor
     public PersonService(PersonRepository repository) {
         this.repository = repository;
@@ -26,8 +26,8 @@ public class PersonService {
         return repository.save(person);
     }
     //Update a person in the repository
-    public boolean updatePerson(Long id,Person newPerson){
-        return repository.findById(id).map(oldPerson -> {
+    public boolean updatePerson(Person newPerson){
+        return repository.findById(newPerson.getId()).map(oldPerson -> {
             oldPerson.setName(newPerson.getName());
             oldPerson.setLastname(newPerson.getLastname());
             oldPerson.setEmail(newPerson.getEmail());
