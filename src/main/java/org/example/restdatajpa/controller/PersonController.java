@@ -18,6 +18,7 @@ public class PersonController {
     //Constructor
     public PersonController(PersonService service) {
         this.service = service;
+        log.info("the Swagger service is available at http://localhost:8080/doc/swagger-ui.html");
     }
 
     /**
